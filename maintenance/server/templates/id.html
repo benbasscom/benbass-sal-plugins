@@ -1,0 +1,56 @@
+<div class="span4">
+    <legend>{{ title }}</legend>
+    <table class="table table-striped table-condensed table-bordered">
+        <tr>
+            <td>
+                {% if maint_configured %}<a href="{% url 'machine_list_id' 'Maintenance' 'configured' page theid %}">{% endif %}
+                Maintenance logging configured
+                <span class="badge badge-info pull-right">
+                    {{ maint_configured }}
+                </span>
+                {% if maint_configured %}</a>{% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% if maint_notconfigured %}<a href="{% url 'machine_list_id' 'Maintenance' 'notconfigured' page theid %}">{% endif %}
+                Maintenance logging not configured
+                <span class="badge badge-warning pull-right">
+                    {{ maint_notconfigured }}
+                </span>
+                {% if maint_notconfigured %}</a>{% endif %}
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                {% if maint_recent_ok %}<a href="{% url 'machine_list_id' 'Maintenance' 'recent_ok' page theid %}">{% endif %}
+                Maintained < 7 days ago
+                <span class="badge badge-success pull-right">
+                    {{ maint_recent_ok }}
+                </span>
+                {% if maint_recent_ok %}</a>{% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% if maint_recent_warning %}<a href="{% url 'machine_list_id' 'Maintenance' 'recent_warning' page theid %}">{% endif %}
+                Maintained between 7 and 28 days ago
+                <span class="badge badge-warning pull-right">
+                    {{ maint_recent_warning }}
+                </span>
+                {% if maint_recent_warning %}</a>{% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% if maint_recent_error %}<a href="{% url 'machine_list_id' 'Maintenance' 'recent_error' page theid %}">{% endif %}
+                Maintained  > 28 days ago
+                <span class="badge badge-important pull-right">
+                    {{ maint_recent_error }}
+                </span>
+                {% if maint_recent_error %}</a>{% endif %}
+            </td>
+        </tr>
+    </table>
+</div>
