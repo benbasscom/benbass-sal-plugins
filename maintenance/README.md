@@ -1,4 +1,4 @@
-# TimeMachine status plugin for Sal.
+# Maintenance status plugin for Sal.
 
 ## Client Script
 
