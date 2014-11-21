@@ -1,5 +1,5 @@
 #!/bin/bash
-# Checks on the last time maintenance was noted, and type.
+# Checks on the last time maintenance was noted.
 # Created by Ben Bass
 # vers="maintchck-0.1"
 # Copyright 2014 Ben Bass. All rights reserved.

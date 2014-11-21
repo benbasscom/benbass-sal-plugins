@@ -1,6 +1,6 @@
 [Core]
-Name = Maintenance_Log
-Module = maintenance_log
+Name = Maintenance
+Module = maintenance
 
 [Documentation]
 Author = Ben Bass

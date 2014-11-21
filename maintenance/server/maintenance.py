@@ -7,7 +7,7 @@ from django.shortcuts import get_object_or_404
 import server.utils as utils
 import time
 
-class TimeMachine(IPlugin):
+class Maintenance(IPlugin):
     def show_widget(self, page, machines=None, theid=None):
         # The data is data is pulled from the database and passed to a template.
         
@@ -63,22 +63,22 @@ class TimeMachine(IPlugin):
         time_month = int(time.time() - (86400 * 28))
 
         if data == 'configured':
-            machines = machines.filter(fact__fact_name='timemachine_configured', fact__fact_data=1)
-            title = 'Machines configured for Time Machine'
+            machines = machines.filter(fact__fact_name='maintenance_configured', fact__fact_data=1)
+            title = 'Machines with MacLab Maintenance logging enabled'
         elif data == 'notconfigured':
-            machines = machines.filter(fact__fact_name='timemachine_configured', fact__fact_data=0)
-            title = 'Machines not configured for Time Machine'
+            machines = machines.filter(fact__fact_name='maintenance_configured', fact__fact_data=0)
+            title = 'Machines without MacLab Maintenance logging enabled'
         elif data == 'recent_ok':
-            machines = machines.filter(fact__fact_name='timemachine_lastsnapshot', fact__fact_data__gte=time_week)
-            title = 'Machines backed up in last 7 days'
+            machines = machines.filter(fact__fact_name='maintenance_lastsnapshot', fact__fact_data__gte=time_week)
+            title = 'Machines with maintenance run in the past 7 days'
         elif data == 'recent_warning':
-            machines = machines.filter(fact__fact_name='timemachine_lastsnapshot', fact__fact_data__lt=time_week, fact__fact_data__gte=time_month)
-            title = 'Machines backed up between 8 and 28 days ago'
+            machines = machines.filter(fact__fact_name='maintenance_lastsnapshot', fact__fact_data__lt=time_week, fact__fact_data__gte=time_month)
+            title = 'Machines maintained between 8 and 28 days ago'
         elif data == 'recent_error':
-            setA = machines.filter(fact__fact_name='timemachine_lastsnapshot', fact__fact_data__lt=time_month)
-            setB = machines.filter(fact__fact_name='timemachine_configured', fact__fact_data=1).exclude(fact__fact_name='timemachine_lastsnapshot')
+            setA = machines.filter(fact__fact_name='maintenance_lastsnapshot', fact__fact_data__lt=time_month)
+            setB = machines.filter(fact__fact_name='maintenance_configured', fact__fact_data=1).exclude(fact__fact_name='maintenance_lastsnapshot')
             machines = setA | setB
-            title = 'Machines backed up more than 28 days ago'
+            title = 'Machines maintained more than 28 days ago'
         else:
             machines = None
             title = 'Unknown'
