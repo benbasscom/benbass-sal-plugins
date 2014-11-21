@@ -1,0 +1,9 @@
+[Core]
+Name = Maintenance_Log
+Module = maintenance_log
+
+[Documentation]
+Author = Ben Bass
+Version = 0.1
+Website = http://lotsofplugins.com
+Description = Checks to see if machines have had maintenance logged on them.
