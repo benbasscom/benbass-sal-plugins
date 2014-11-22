@@ -1,6 +1,8 @@
 # Maintenance status plugin for Sal.
 
-Special thanks to Daniel Hazelbaker for putting together his TimeMachine plugin.
+Special thanks to [Daniel Hazelbaker] (https://github.com/salsoftware/cabal95-plugins/) for putting together his [TimeMachine] (https://github.com/salsoftware/cabal95-plugins/tree/master/timemachine) plugin.
+
+https://github.com/salsoftware/cabal95-plugins
 
 ## Client Script
 
