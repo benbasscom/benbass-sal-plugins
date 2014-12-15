@@ -2,8 +2,6 @@
 
 Special thanks to [Daniel Hazelbaker] (https://github.com/salsoftware/cabal95-plugins/) for putting together his [TimeMachine] (https://github.com/salsoftware/cabal95-plugins/tree/master/timemachine) plugin.
 
-https://github.com/salsoftware/cabal95-plugins
-
 ## Client Script
 
 The client script is an external facter script, which means it needs to
