@@ -39,7 +39,7 @@ fi
 
 # Get the oldest snapshot date.
 firstsnapshot=""
-firstsnapshotdate
+firstsnapshotdate=""
 if [ $configured -eq 1 ]; then
   if [ "$version" = "10.6" ]; then
     firstsnapshot=0
